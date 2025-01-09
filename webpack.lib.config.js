@@ -88,8 +88,20 @@ module.exports = [
     ...baseConfig,
     output: {
       path: path.join(__dirname, "dist/"),
-      libraryTarget: "umd",
-      filename: "vue3-treeselect.umd.min.js"
+      library: {
+        name: "Vue3Treeselect",
+        type: "umd"
+      },
+      filename: "vue3-treeselect.umd.min.js",
+      globalObject: "this"
+    },
+    externals: {
+      vue: {
+        commonjs: "vue",
+        commonjs2: "vue",
+        amd: "vue",
+        root: "Vue"
+      }
     }
   }
 ];

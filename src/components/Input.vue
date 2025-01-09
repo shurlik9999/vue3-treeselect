@@ -275,7 +275,7 @@ export default {
       return (
         <input
           ref="input"
-          class="vue3-treeselect__input"
+          class="vue3-treeselect__input browser-default"
           type="text"
           autocomplete="off"
           tabIndex={instance.tabIndex}
