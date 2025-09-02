@@ -78,6 +78,20 @@ const state = reactive({
 </script>
 ```
 
+### Attribute `noprevent`
+
+Links inside the component slots can use the `noprevent` attribute to avoid blocking the default navigation behavior. If an `<a>` element contains this attribute, the event will not be intercepted, and the link will work as expected.
+
+Example usage:
+
+```vue
+<a 
+  href="/example" 
+  noprevent
+>
+  Go to Example
+</a>
+
 ### Documentation & Live Demo
 
 [Visit the website](https://zanmato.github.io/vue3-treeselect/)

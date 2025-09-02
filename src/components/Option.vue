@@ -277,8 +277,15 @@ const Option = {
     ),
 
     handleMouseDownOnLabelContainer: onLeftClick(
-      function handleMouseDownOnLabelContainer() {
+      function handleMouseDownOnLabelContainer(evt) {
         const { instance, node } = this;
+
+        // Don't select the option if the click is on a link with `noprevent`
+
+        const linkElement = evt.target.closest("a");
+        if (linkElement && linkElement.hasAttribute("no-prevent-default")) {
+          return;
+        }
 
         if (node.isBranch && instance.disableBranchNodes) {
           instance.toggleExpanded(node);
