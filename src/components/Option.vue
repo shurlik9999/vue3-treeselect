@@ -64,7 +64,7 @@ const Option = {
       }
 
       return (
-        <div class="vue3-treeselect__list">
+        <div class="vue3-treeselect__list" role="group">
           {this.renderSubOptions()}
           {this.renderNoChildrenTip()}
           {this.renderLoadingChildrenTip()}
@@ -310,7 +310,14 @@ const Option = {
     };
 
     return (
-      <div class={listItemClass}>
+      <div class={listItemClass}
+        id={`${this.instance.getInstanceId()}-option-${encodeURIComponent(node.id)}`}
+        role="treeitem"
+        aria-label={node.label}
+        aria-level={node.level + 1}
+        aria-expanded={node.isBranch ? this.shouldExpand : undefined}
+        aria-selected={node.isLeaf ? this.instance.isSelected(node) : undefined}
+        aria-disabled={node.isDisabled || undefined}>
         {this.renderOption()}
         {node.isBranch ? (
           <Transition name="vue3-treeselect__list--transition">

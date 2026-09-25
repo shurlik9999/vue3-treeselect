@@ -73,6 +73,10 @@ export default {
       return (
         <div
           ref="menu"
+          id={`${instance.getInstanceId()}-tree`}
+          role="tree"
+          aria-label={instance.ariaLabel}
+          aria-multiselectable={instance.multiple || undefined}
           class="vue3-treeselect__menu"
           onMousedown={instance.handleMouseDown}
           style={this.menuStyle}

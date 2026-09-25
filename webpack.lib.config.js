@@ -78,6 +78,17 @@ const baseConfig = {
 module.exports = [
   {
     ...baseConfig,
+    target: ["web", "es2015"],
+    experiments: { outputModule: true },
+    externals: [nodeExternals({ importType: "module" })],
+    output: {
+      path: path.join(__dirname, "dist/"),
+      library: { type: "module" },
+      filename: "vue3-treeselect.esm.js"
+    }
+  },
+  {
+    ...baseConfig,
     output: {
       path: path.join(__dirname, "dist/"),
       libraryTarget: "commonjs2",

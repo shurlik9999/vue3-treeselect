@@ -11,6 +11,11 @@
 # Windows
 Thumbs.db
 
-dist
+# Built library files are committed so GitHub archives are installable without build tooling.
+dist/*
+!dist/vue3-treeselect.cjs.min.js
+!dist/vue3-treeselect.esm.js
+!dist/vue3-treeselect.umd.min.js
+!dist/vue3-treeselect.min.css
 gh-pages
 node_modules/

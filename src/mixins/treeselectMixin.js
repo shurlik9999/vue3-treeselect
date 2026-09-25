@@ -99,6 +99,10 @@ export default {
   },
 
   props: {
+    inputId: { type: String, default: undefined },
+    ariaLabel: { type: String, default: undefined },
+    ariaDescribedby: { type: String, default: undefined },
+    ariaInvalid: { type: Boolean, default: false },
     /**
      * Whether to allow resetting value even if there are disabled selected nodes.
      */

@@ -42,6 +42,17 @@ export default {
           </span>
           <span
             class="vue3-treeselect__icon vue3-treeselect__value-remove"
+            role="button"
+            tabindex={instance.disabled || node.isDisabled ? -1 : 0}
+            aria-label={`Remove ${node.label}`}
+            aria-disabled={instance.disabled || node.isDisabled || undefined}
+            onKeydown={event => {
+              if ((event.key === 'Enter' || event.key === ' ') && !instance.disabled && !node.isDisabled) {
+                event.preventDefault();
+                instance.select(node);
+                instance.focusInput();
+              }
+            }}
             onMousedown={this.handleMouseDown}>
             <DeleteIcon />
           </span>

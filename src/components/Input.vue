@@ -275,6 +275,17 @@ export default {
       return (
         <input
           ref="input"
+          id={instance.inputId}
+          role="combobox"
+          aria-label={instance.ariaLabel}
+          aria-describedby={instance.ariaDescribedby}
+          aria-invalid={instance.ariaInvalid}
+          aria-expanded={instance.menu.isOpen}
+          aria-haspopup="tree"
+          aria-autocomplete="list"
+          aria-controls={instance.menu.isOpen ? `${instance.getInstanceId()}-tree` : undefined}
+          aria-activedescendant={instance.menu.isOpen && instance.menu.current != null
+            ? `${instance.getInstanceId()}-option-${encodeURIComponent(instance.menu.current)}` : undefined}
           class="vue3-treeselect__input browser-default"
           type="text"
           autocomplete="off"

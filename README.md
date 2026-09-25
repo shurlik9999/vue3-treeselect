@@ -23,6 +23,25 @@ _Requires Vue 3.0+_
 
 ### Getting Started
 
+### Installing this fork from GitHub
+
+Built CommonJS, ESM and CSS files are committed in `dist/`. Applications can pin a
+commit and install its GitHub archive directly (including in images without Git):
+
+```sh
+npm install https://github.com/shurlik9999/vue3-treeselect/archive/<commit-sha>.tar.gz
+```
+
+The package name and imports remain `@zanmato/vue3-treeselect`. No application
+vendor directory or install-time library build is required. After changing this
+fork, run `npm install --legacy-peer-deps`, `npm run build-library` and commit the
+updated `dist/` files together with the sources. The ESM entry supports native
+default imports in Vite; the CommonJS entry is retained for existing consumers.
+
+Optional `inputId`, `ariaLabel`, `ariaDescribedby` and `ariaInvalid` props name the
+search input and associate validation messages. The input/tree expose expanded,
+active and selected states; selected values can be removed with Enter or Space.
+
 It's recommended to install vue3-treeselect via npm, and build your app using a bundler like [webpack](https://webpack.js.org/).
 
 ```bash
